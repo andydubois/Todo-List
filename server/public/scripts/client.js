@@ -70,8 +70,8 @@ function appendToDoList(todolist) {
             <td>${task.task}</td>
             <td>${task.type}</td>
             <td>${task.notes}</td>
-            <td>${task.completed} <button class = "completeButton">Task Completed</button></td>
-            <td><button class = "deleteButton">Delete</button></td>
+            <td>${task.completed} <button class = "completeButton btn btn-success">Complete Task</button></td>
+            <td><button class = "deleteButton btn btn-danger">Delete</button></td>
         </tr>
         `);
             row.data('id', task.id);
@@ -83,7 +83,7 @@ function appendToDoList(todolist) {
             <td>${task.type}</td>
             <td>${task.notes}</td>
             <td>${task.completed}</td>
-            <td><button class="deleteButton">Delete?</button></td>
+            <td><button class = "deleteButton btn btn-danger">Delete</button></td>
         </tr>
         `);
             row.data('id', task.id);

@@ -3,5 +3,14 @@
 }
 
 .notCompleted {
-    background-color: red !important;
+    background-color: #ffb1b1 !important;
+}
+
+#addTask {
+    margin: 10px;
+    align-content: center;
+}
+
+.table {
+    margin: 10px;
 }
