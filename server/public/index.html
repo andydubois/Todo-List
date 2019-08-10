@@ -6,10 +6,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>To-do List BOYEEEEEEEEE</title>
+    <script src="vendors/jquery-3.3.1.min.js" charset="utf-8"></script>
+    <script src="scripts/client.js" charset="utf-8"></script>
 </head>
 
 <body>
     <h1>LIST OF THINGS TO DO</h1>
 </body>
+
+<section id="addTask">
+    <h2>Add To Do Task</h2>
+    <input type="text" id="taskIn" class="input" value="" placeholder="To-do Task">
+    <input type="text" id="homeOrWork" class="input" value="" placeholder="Home or work?">
+    <input type="text" id="notesIn" class="input" value="" placeholder="Notes">
+    <button type="button" id="addButton" class="btn btn-primary">Add Task</button>
+</section>
+<section>
+    <h2>TO DO</h2>
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>To-do Task</th>
+                <th>Home or work?</th>
+                <th>Notes</th>
+                <th>Completed?</th>
+            </tr>
+        </thead>
+        <tbody id="domTaskList">
+        </tbody>
+    </table>
+</section>
 
 </html>
