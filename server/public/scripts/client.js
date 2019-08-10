@@ -2,6 +2,9 @@ console.log('js');
 
 $(document).ready(function () {
     console.log('jQuery is good to go');
+    //click listeners
+    $('#addButton').on('click', handleAddClick);
+    //retrieves to do list
     getList();
 })
 
@@ -19,6 +22,33 @@ function getList() {
     });
 } //end GET getList
 
+
+function addTask(newTask) {
+
+    console.log('in addTask', newTask);
+    $.ajax({
+        type: 'POST',
+        url: '/todo',
+        data: newTask,
+    }).then(function (response) {
+        console.log('Response from server-side:', response);
+        getList();
+    }).catch(function (error) {
+        console.log('Error in POST client side', error);
+    });
+}
+
+function handleAddClick() {
+    console.log('add button clicked');
+    let newTask = {};
+    //puts input fields into an object
+    newTask.task = $('#taskIn').val(),
+        newTask.type = $('#homeOrWork').val();
+    newTask.notes = $('#notesIn').val();
+    addTask(newTask);
+}
+
+//Appends to do list from database/server onto DOM
 function appendToDoList(todolist) {
     $('#domTaskList').empty();
 
