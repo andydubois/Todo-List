@@ -64,17 +64,31 @@ function appendToDoList(todolist) {
     for (let i = 0; i < todolist.length; i++) {
         let task = todolist[i];
         //variable equal to HTML to be appended onto DOM
-        let row = $(`
-        <tr>
+        if (task.completed == 'No') {
+            let row = $(`
+        <tr class = "notCompleted">
+            <td>${task.task}</td>
+            <td>${task.type}</td>
+            <td>${task.notes}</td>
+            <td>${task.completed} <button class = "completeButton">Task Completed</button></td>
+            <td><button class = "deleteButton">Delete</button></td>
+        </tr>
+        `);
+            row.data('id', task.id);
+            $('#domTaskList').append(row);
+        } else {
+            let row = $(`
+        <tr class = "completed">
             <td>${task.task}</td>
             <td>${task.type}</td>
             <td>${task.notes}</td>
             <td>${task.completed}</td>
-            <td><button class="completeButton">Completed task?</button><button class="deleteButton">Delete?</button></td>
+            <td><button class="deleteButton">Delete?</button></td>
         </tr>
         `);
-        row.data('id', task.id);
-        $('#domTaskList').append(row);
+            row.data('id', task.id);
+            $('#domTaskList').append(row);
+        }
     }
 };
 //end appendToDoList function
