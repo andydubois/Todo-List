@@ -5,6 +5,7 @@ $(document).ready(function () {
     //click listeners
     $('#addButton').on('click', handleAddClick);
     $('#domTaskList').on('click', '.deleteButton', handleDelete);
+    $('#domTaskList').on('click', '.completeButton', handleComplete);
     //retrieves to do list
     getList();
 })
@@ -62,7 +63,7 @@ function appendToDoList(todolist) {
 
     for (let i = 0; i < todolist.length; i++) {
         let task = todolist[i];
-
+        //variable equal to HTML to be appended onto DOM
         let row = $(`
         <tr>
             <td>${task.task}</td>
@@ -82,6 +83,7 @@ function appendToDoList(todolist) {
 
 function handleDelete() {
     console.log('clicked delete button');
+    //identify the unique ID of task to be deleted
     let idToDelete = $(this).closest('tr').data('id');
     $.ajax({
         type: 'DELETE',
@@ -91,5 +93,21 @@ function handleDelete() {
         getList(response);
     }).catch(function (error) {
         console.log('in handleDelete:', error);
+    })
+}
+
+//end of DELETE FUNCTION
+
+function handleComplete() {
+    console.log('in completeHandler');
+    let idToUpdate = $(this).closest('tr').data('id');
+    $.ajax({
+        type: 'PUT',
+        url: `/todo/${idToUpdate}`
+    }).then(function (response) {
+        getList();
+        console.log('client side PUT', response);
+    }).catch(function (error) {
+        console.log('client side PUT', error);
     })
 }

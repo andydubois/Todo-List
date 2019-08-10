@@ -53,7 +53,7 @@ todoRouter.post('/', (req, res) => {
         });
 });
 
-
+//DELETE button call
 todoRouter.delete('/:id', (req, res) => {
     const queryText = `DELETE FROM "todolist" WHERE "id" = $1;`;
 
@@ -61,6 +61,24 @@ todoRouter.delete('/:id', (req, res) => {
         .then((result) => {
             res.sendStatus(204)
         })
+});
+
+//end of DELETE
+
+todoRouter.put('/:id', (req, res) => {
+    console.log('Server side PUT');
+    let idToUpdate = req.params.id;
+    let queryText = `UPDATE "todolist"
+                    SET "completed" = 'Yes'
+                    WHERE "id" = $1;`;
+    pool.query(queryText, [idToUpdate])
+        .then(results => {
+            res.sendStatus(200);
+            console.log('in server side PUT', results);
+        }).catch(error => {
+            console.log(error);
+            res.sendStatus(500);
+        });
 });
 
 
