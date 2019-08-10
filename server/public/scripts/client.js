@@ -4,11 +4,12 @@ $(document).ready(function () {
     console.log('jQuery is good to go');
     //click listeners
     $('#addButton').on('click', handleAddClick);
+    $('#domTaskList').on('click', '.deleteButton', handleDelete);
     //retrieves to do list
     getList();
 })
 
-
+//GET that retrieves to do list from server/database
 function getList() {
     console.log('in getList');
     $.ajax({
@@ -23,6 +24,7 @@ function getList() {
 } //end GET getList
 
 
+//POST to send input entries for new task
 function addTask(newTask) {
 
     console.log('in addTask', newTask);
@@ -37,7 +39,10 @@ function addTask(newTask) {
         console.log('Error in POST client side', error);
     });
 }
+//end POST function
 
+
+//handles add button click and arranges inputs into an object
 function handleAddClick() {
     console.log('add button clicked');
     let newTask = {};
@@ -47,6 +52,8 @@ function handleAddClick() {
     newTask.notes = $('#notesIn').val();
     addTask(newTask);
 }
+//end handleAddClick
+
 
 //Appends to do list from database/server onto DOM
 function appendToDoList(todolist) {
@@ -69,3 +76,20 @@ function appendToDoList(todolist) {
         $('#domTaskList').append(row);
     }
 };
+//end appendToDoList function
+
+//DELETE function
+
+function handleDelete() {
+    console.log('clicked delete button');
+    let idToDelete = $(this).closest('tr').data('id');
+    $.ajax({
+        type: 'DELETE',
+        url: `/todo/${idToDelete}`,
+    }).then(function (response) {
+        console.log('in handleDelete', response)
+        getList(response);
+    }).catch(function (error) {
+        console.log('in handleDelete:', error);
+    })
+}
