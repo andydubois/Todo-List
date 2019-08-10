@@ -20,7 +20,7 @@ pool.on('error', (error) => {
 });
 
 
-//GET
+//GET retrieves to do list from database
 todoRouter.get('/', (req, res) => {
     let queryText = 'SELECT * FROM "todolist";';
     pool.query(queryText).then(result => {
@@ -34,7 +34,24 @@ todoRouter.get('/', (req, res) => {
         });
 });
 
-
+//POST sends user inputs to database
+todoRouter.post('/', (req, res) => {
+    let taskToAdd = req.body;
+    console.log(taskToAdd);
+    //sanitize the database inserts
+    let queryText = `
+    INSERT INTO "todolist" ("task", "completed", "type", "notes")
+    VALUES ($1, $2, $3, $4);
+    `;
+    pool.query(queryText, [taskToAdd.task, 'No', taskToAdd.type, taskToAdd.notes]).
+    then((result) => {
+            res.sendStatus(201);
+        })
+        .catch((error) => {
+            console.log(error);
+            res.sendStatus(500);
+        });
+});
 
 
 module.exports = todoRouter;
