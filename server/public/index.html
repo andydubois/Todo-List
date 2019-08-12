@@ -5,12 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>To-do List BOYEEEEEEEEE</title>
+    <title>To-do List</title>
     <script src="vendors/jquery-3.3.1.min.js" charset="utf-8"></script>
     <script src="scripts/client.js" charset="utf-8"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="vendors/bootstrap.css">
+    <link rel="stylesheet" href="styles/style.css">
 </head>
 
 <body>
@@ -20,8 +20,13 @@
 <section id="addTask">
     <h2>Add To Do Task</h2>
     <input type="text" id="taskIn" class="input" value="" placeholder="To-do Task">
-    <input type="text" id="homeOrWork" class="input" value="" placeholder="Home or work?">
+    <!-- <input type="text" id="homeOrWork" class="input" value="" placeholder="Home or work?"> -->
     <input type="text" id="notesIn" class="input" value="" placeholder="Notes">
+    <select id="homeOrWork" name="type">
+        <option value="Home">Home</option>
+        <option value="Work">Work</option>
+        <option value="Other">Other</option>
+    </select>
     <button type="button" id="addButton" class="btn btn-primary">Add Task</button>
 </section>
 <section>

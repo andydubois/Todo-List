@@ -1,16 +1,28 @@
-.completed {
-    background-color: lightgreen !important;
-}
+ @font-face {
+     font-family: KeeponTruckin;
+     src: url(../fonts/KeeponTruckin.ttf);
+ }
 
-.notCompleted {
-    background-color: #ffb1b1 !important;
-}
+ .completed {
+     background-color: lightgreen !important;
+ }
 
-#addTask {
-    margin: 10px;
-    align-content: center;
-}
+ .notCompleted {
+     background-color: #ffb1b1 !important;
+ }
 
-.table {
-    margin: 10px;
-}
+ #addTask {
+     margin: 10px;
+     align-content: center;
+ }
+
+ .table {
+     margin: 10px;
+     text-align: center;
+ }
+
+ .jumbotron {
+     font-family: KeeponTruckin;
+     text-align: center;
+     font-size: 6vw;
+ }
