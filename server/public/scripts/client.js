@@ -1,5 +1,6 @@
 console.log('js');
 
+
 $(document).ready(function () {
     console.log('jQuery is good to go');
     //click listeners
@@ -99,15 +100,33 @@ function handleDelete() {
     console.log('clicked delete button');
     //identify the unique ID of task to be deleted
     let idToDelete = $(this).closest('tr').data('id');
-    $.ajax({
-        type: 'DELETE',
-        url: `/todo/${idToDelete}`,
-    }).then(function (response) {
-        console.log('in handleDelete', response)
-        getList(response);
-    }).catch(function (error) {
-        console.log('in handleDelete:', error);
-    })
+    swal({
+            title: "Are you sure?",
+            text: "Once deleted, the task will be permanently deleted from the database",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+        .then((willDelete) => {
+            if (willDelete) {
+                $.ajax({
+                    type: 'DELETE',
+                    url: `/todo/${idToDelete}`,
+                }).then(function (response) {
+                    console.log('in handleDelete', response)
+                    getList(response);
+                }).catch(function (error) {
+                    console.log('in handleDelete:', error);
+                });
+
+
+                swal("The task has been deleted", {
+                    icon: "success",
+                });
+            } else {
+                swal("Your task was not deleted!");
+            }
+        });
 }
 
 //end of DELETE FUNCTION
