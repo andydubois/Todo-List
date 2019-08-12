@@ -6,6 +6,7 @@ $(document).ready(function () {
     //click listeners
     $('#addButton').on('click', handleAddClick);
     $('#domTaskList').on('click', '.deleteButton', handleDelete);
+    $('#completedTable').on('click', '.deleteButton', handleDelete);
     $('#domTaskList').on('click', '.completeButton', handleComplete);
     //retrieves to do list
     getList();
@@ -60,6 +61,7 @@ function handleAddClick() {
 //Appends to do list from database/server onto DOM
 function appendToDoList(todolist) {
     $('#domTaskList').empty();
+    $('#completedTable').empty();
 
 
     for (let i = 0; i < todolist.length; i++) {
@@ -79,16 +81,17 @@ function appendToDoList(todolist) {
             $('#domTaskList').append(row);
         } else {
             let row = $(`
-        <tr class = "completed">
+         <tr class = "completed">
             <td>${task.task}</td>
             <td>${task.type}</td>
             <td>${task.notes}</td>
             <td>${task.completed}</td>
             <td><button class = "deleteButton btn btn-danger">Delete</button></td>
         </tr>
+
         `);
             row.data('id', task.id);
-            $('#domTaskList').append(row);
+            $('#completedTable').append(row);
         }
     }
 };

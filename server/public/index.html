@@ -26,9 +26,10 @@
                     <option value="Work">Work</option>
                     <option value="Other">Other</option>
                 </select>
-                <button type="button" id="addButton" class="btn btn-primary">Add Task</button>
+                <button type="button" id="addButton" class="btn btn-primary addButton">Add Task</button>
             </div>
-            <div class="col-7">
+            <div class="col-9">
+                <h3 class="toDoHeader">To Do</h3>
                 <table class="table table-striped table-bordered">
                     <thead>
                         <tr class="tableRowHeader">
@@ -41,8 +42,20 @@
                     <tbody id="domTaskList">
                     </tbody>
                 </table>
+                <h3 class="completedHeader">Completed</h3>
+                <table class="table table-striped table-bordered">
+                    <thead>
+                        <tr class="tableRowHeader">
+                            <th>Task</th>
+                            <th>Type of Task</th>
+                            <th>Notes</th>
+                            <th>Completed?</th>
+                        </tr>
+                    </thead>
+                    <tbody id="completedTable">
+                    </tbody>
+                </table>
             </div>
-            <div class="col-1"></div>
         </div>
     </div>
 </body>
