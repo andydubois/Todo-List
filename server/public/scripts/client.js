@@ -50,16 +50,19 @@ function handleAddClick() {
     console.log('add button clicked');
     let newTask = {};
     //puts input fields into an object
-    newTask.task = $('#taskIn').val(),
-        newTask.type = $('#homeOrWork').val();
+    newTask.task = $('#taskIn').val();
+    newTask.type = $('#homeOrWork').val();
     newTask.notes = $('#notesIn').val();
     addTask(newTask);
+    $('#taskIn').val('');
+    $('#notesIn').val('');
 }
 //end handleAddClick
 
 
 //Appends to do list from database/server onto DOM
 function appendToDoList(todolist) {
+    //empties out lists
     $('#domTaskList').empty();
     $('#completedTable').empty();
 
@@ -79,6 +82,7 @@ function appendToDoList(todolist) {
         `);
             row.data('id', task.id);
             $('#domTaskList').append(row);
+            //appends results if completed to a new table with the complete button appended
         } else {
             let row = $(`
          <tr class = "completed">
