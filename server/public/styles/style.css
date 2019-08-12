@@ -4,8 +4,8 @@
  }
 
  @font-face {
-     font-family: redScript;
-     src: url(../fonts/RedstockScript-DEMO.ttf);
+     font-family: harmonyHeavy;
+     src: url(../fonts/InstantHarmonyDEMO.otf);
  }
 
  @font-face {
@@ -31,8 +31,23 @@
      text-align: center;
  }
 
+ .boday {
+     background-image: url(../image/legalPad.png);
+     background-repeat: no-repeat;
+     background-size: cover;
+ }
+
+
+ .tableRowHeader,
+ .addTask,
  .input {
+     font-family: harmonyHeavy;
+ }
+
+ .input,
+ .homeOrWork {
      display: block;
+     font-size: 1.5vw;
  }
 
  .jumbotron {
@@ -40,6 +55,7 @@
      text-align: center;
      font-size: 6vw;
      padding-bottom: 5px;
+     background-color: brown;
  }
 
  .table {
