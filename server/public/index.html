@@ -15,34 +15,37 @@
 
 <body>
     <h1 class='jumbotron'>LIST OF THINGS TO DO</h1>
+    <div class="container">
+        <div class="row">
+            <div id="addTask col-2">
+                <h2 class="taskHeader">Add To Do Task</h2>
+                <input type="text" id="taskIn" class="input form-control" value="" placeholder="Add To-Do">
+                <!-- <input type="text" id="homeOrWork" class="input" value="" placeholder="Home or work?"> -->
+                <input type="text" id="notesIn" class="input form-control" value="" placeholder="Notes">
+                <select id="homeOrWork" name="type">
+                    <option value="Home">Home</option>
+                    <option value="Work">Work</option>
+                    <option value="Other">Other</option>
+                </select>
+                <button type="button" id="addButton" class="btn btn-primary">Add Task</button>
+            </div>
+            <div class="col-7">
+                <table class="table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Task</th>
+                            <th>Type of Task</th>
+                            <th>Notes</th>
+                            <th>Completed?</th>
+                        </tr>
+                    </thead>
+                    <tbody id="domTaskList">
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-1"></div>
+        </div>
+    </div>
 </body>
-
-<section id="addTask">
-    <h2>Add To Do Task</h2>
-    <input type="text" id="taskIn" class="input" value="" placeholder="To-do Task">
-    <!-- <input type="text" id="homeOrWork" class="input" value="" placeholder="Home or work?"> -->
-    <input type="text" id="notesIn" class="input" value="" placeholder="Notes">
-    <select id="homeOrWork" name="type">
-        <option value="Home">Home</option>
-        <option value="Work">Work</option>
-        <option value="Other">Other</option>
-    </select>
-    <button type="button" id="addButton" class="btn btn-primary">Add Task</button>
-</section>
-<section>
-    <h2>TO DO</h2>
-    <table class="table table-striped table-bordered">
-        <thead>
-            <tr>
-                <th>To-do Task</th>
-                <th>Home or work?</th>
-                <th>Notes</th>
-                <th>Completed?</th>
-            </tr>
-        </thead>
-        <tbody id="domTaskList">
-        </tbody>
-    </table>
-</section>
 
 </html>

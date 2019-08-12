@@ -70,7 +70,7 @@ function appendToDoList(todolist) {
         <tr class = "notCompleted">
             <td>${task.task}</td>
             <td>${task.type}</td>
-            <td>${task.notes}</td>
+            <td class="tableNotes">${task.notes}</td>
             <td>${task.completed} <button class = "completeButton btn btn-success">Complete Task</button></td>
             <td><button class = "deleteButton btn btn-danger">Delete</button></td>
         </tr>

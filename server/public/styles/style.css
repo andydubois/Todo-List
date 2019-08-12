@@ -1,6 +1,16 @@
  @font-face {
-     font-family: KeeponTruckin;
+     font-family: keepOnTruckin;
      src: url(../fonts/KeeponTruckin.ttf);
+ }
+
+ @font-face {
+     font-family: redScript;
+     src: url(../fonts/RedstockScript-DEMO.ttf);
+ }
+
+ @font-face {
+     font-family: harmony;
+     src: url(../fonts/InstantHarmonyLiteDEMO.otf);
  }
 
  .completed {
@@ -21,8 +31,28 @@
      text-align: center;
  }
 
+ .input {
+     display: block;
+ }
+
  .jumbotron {
-     font-family: KeeponTruckin;
+     font-family: keepOnTruckin;
      text-align: center;
      font-size: 6vw;
+     padding-bottom: 5px;
+ }
+
+ .table {
+     font-family: harmony;
+     font-size: 2vw;
+ }
+
+ .taskHeader {
+     font-family: keepOnTruckin;
+     margin-left: 5px;
+ }
+
+ .toDoHeader {
+     font-family: keepOnTruckin;
+     margin-left: 10px;
  }
